@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:57:20 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/18 18:16:50 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/20 13:34:01 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void				*ft_calloc(size_t num, size_t size);
 
 int					ft_isprint(int c);
 int					ft_atoi(const char *str);
-int					ft_atol(const char *str);
+long int			ft_atol(const char *str);
 int					ft_isalnum(int c);
 int					ft_isalpha(int i);
 int					ft_isascii(int c);

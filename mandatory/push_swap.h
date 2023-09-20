@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:04:15 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/18 15:34:51 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:08:52 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ typedef struct s_stack
 	int min_b;
 	int max_a;
 	int max_b;
-	t_node *head;
+	t_node *head_a;
+	t_node *head_b;
 }			t_stack;
 
 
@@ -63,14 +64,25 @@ typedef struct s_stack
 
 t_stack	*init_stack(void);
 t_node	*init_node(int value);
+void add_to_list(t_node **head, t_stack *stack, int value);
 
 //############################# CHECK ##########################################
 
 t_bool is_integer(char *str);
-t_bool is_duplicate(t_node *head, int value);
+t_bool is_duplicate(t_node *head);
 int *split_and_convert(char *str);
-t_bool check_numbers(t_node *head, char *str);
+t_bool check_value(char *str);
+t_bool	process_arguments(t_stack *stack, int argc, char **argv);
+t_bool	is_sorted(t_node *head);
 
+//############################# MEM FREE #######################################
 
+void	free_list(t_node *head);
+void	free_stack(t_stack *stack);
+
+//############################# OPERATIONS #####################################
+
+void	swap_a(t_stack *stack);
+void	rotate_a(t_stack *stack);
 
 # endif
