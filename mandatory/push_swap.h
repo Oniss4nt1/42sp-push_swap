@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:04:15 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/20 19:08:52 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/21 16:47:40 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_stack
 t_stack	*init_stack(void);
 t_node	*init_node(int value);
 void add_to_list(t_node **head, t_stack *stack, int value);
+void	add_to_head(t_node **head, int value);
 
 //############################# CHECK ##########################################
 
@@ -83,6 +84,13 @@ void	free_stack(t_stack *stack);
 //############################# OPERATIONS #####################################
 
 void	swap_a(t_stack *stack);
+void	swap_b(t_stack *stack);
 void	rotate_a(t_stack *stack);
+void	rotate_b(t_stack *stack);
+void	push_a(t_stack *stack);
+void	push_b(t_stack *stack);
+void	reverse_rotate_a(t_stack *stack);
+void	reverse_rotate_b(t_stack *stack);
+void	reverse_rr(t_stack *stack);
 
 # endif

@@ -18,8 +18,10 @@ HEADER 		= ./mandatory/
 ################################ Sources ####################################
 
 SUBDIRS 	= mandatory
-MAND_SRCS 	= ./init/ps_add.c ./init/ps_checks.c ./init/ps_init.c ps_memory_free.c main.c \
-			./moves/ps_swap.c ./moves/ps_rotate.c
+MAND_SRCS 	= ./init/ps_add.c ./init/ps_checks.c ./init/ps_init.c ps_memory_free.c \
+			./moves/ps_swap.c ./moves/ps_rotate.c ./moves/ps_push.c ./moves/ps_reverse_rotate.c \
+			test_rotate_rr.c
+			
 # BONUS_SRCS 	= checker.c
 
 SRCS 		= $(addprefix ./mandatory/, $(MAND_SRCS))

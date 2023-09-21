@@ -6,11 +6,11 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:10:27 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/20 19:24:37 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/21 19:33:26 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_bool is_integer(char *str);
 int *split_and_convert(char *str);
@@ -142,7 +142,7 @@ t_bool check_value(char *str)
 {
 	long int value;
 
-	value = atol(str);
+	value = ft_atol(str); // Em casos de argumentos passados com aspas duplas "", eu devo dar um jeito de retirar ou usar numbers (splittados)
 	if (value > 2147483647 || value < -2147483648)
 	{
 		ft_putstr_fd("Error\nValue out of range\n", 2);

@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:07:40 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/20 18:41:45 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:53:39 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ void	swap_a(t_stack *stack)
 	stack->head_a = second;
 }
 
-// void	swap_b(t_stack *stack)
-// {
-// 	t_node *first;
-// 	t_node *second;
+void	swap_b(t_stack *stack)
+{
+	t_node *first;
+	t_node *second;
 
-// 	if (stack->size_b < 2)
-// 		return ;
-// 	first = stack->head;
-// 	second = first->next;
-// 	first->next = second->next;
-// 	second->next = first;
-// 	stack->head = second;
-// }
+	if (stack->size_b < 2)
+		return ;
+	first = stack->head_b;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	stack->head_b = second;
+}
 
 // void swap_swap(t_stack *stack)
 // {
