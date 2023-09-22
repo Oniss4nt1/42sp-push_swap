@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:10:27 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/21 19:33:26 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:09:49 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ t_bool check_value(char *str)
 {
 	long int value;
 
-	value = ft_atol(str); // Em casos de argumentos passados com aspas duplas "", eu devo dar um jeito de retirar ou usar numbers (splittados)
+	value = ft_atol(str); 
 	if (value > 2147483647 || value < -2147483648)
 	{
 		ft_putstr_fd("Error\nValue out of range\n", 2);

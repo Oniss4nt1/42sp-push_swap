@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:55:27 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/21 18:39:41 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:07:05 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@
 // 	}
 // 	ft_printf("End of stack A\n");
 
-// 	reverse_rr(stack);
+// 	double_reverse_rr(stack);
 // 	ft_printf("Stack B:\n");
 // 	while (stack->head_b)
 // 	{

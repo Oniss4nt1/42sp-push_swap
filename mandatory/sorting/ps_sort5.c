@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_swap.c                                          :+:      :+:    :+:   */
+/*   ps_sort5.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 15:07:40 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/22 17:09:44 by brunrodr         ###   ########.fr       */
+/*   Created: 2023/09/22 15:42:44 by brunrodr          #+#    #+#             */
+/*   Updated: 2023/09/22 16:18:56 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	swap(t_node **head)
+void	sort_five(t_stack *stack)
 {
-	t_node *first;
-	t_node *second;
+	int min1;
+	int min2;
 
-	if (!*head || !(*head)->next)
-		return ;
-	first = *head;
-	second = first->next;
-	first->next = second->next;
-	second->next = first;
-	*head = second;
+	min1 
 }
 
-void double_swap(t_stack *stack)
+int	find_min(t_node *head)
 {
-	swap(&stack->head_a);
-	swap(&stack->head_b);
+	
 }
