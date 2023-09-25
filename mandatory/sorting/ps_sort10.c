@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:04:26 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/25 19:02:48 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:06:51 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,23 @@ void	sort_ten(t_stack *stack)
 
 	i = 0;
 	if (stack->size_a <= 5)
-		return ;
-	while (i < 5)
 	{
+		sort_five(stack);
+		return ;
+	}
+	while (i < stack->size_a - 5)
+	{
+		move_min_top(stack);
 		push_a_to_b(stack);
 		i++;
+	}
+	sort_five(stack);
+	while (stack->size_b > 0)
+	{
+		push_b_to_a(stack);
+		if (stack->head_a->value > stack->head_a->next->value)
+			rotate(&stack->head_a, 'a', stack);
+		
 	}
 }
 

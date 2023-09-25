@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:41:58 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/25 18:59:44 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:07:22 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 	// push_a_to_b(stack);
 	// push_a_to_b(stack);
 
-	quick_sort(stack, stack, stack->size_a);
+	sort_ten(stack);
 	
 	// while (stack->head_a)
 	// {
