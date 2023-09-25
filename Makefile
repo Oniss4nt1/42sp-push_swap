@@ -20,7 +20,8 @@ HEADER 		= ./mandatory/
 SUBDIRS 	= mandatory
 MAND_SRCS 	= ./init/ps_add.c ./init/ps_checks.c ./init/ps_init.c ps_memory_free.c \
 			./moves/ps_swap.c ./moves/ps_rotate.c ./moves/ps_push.c ./moves/ps_reverse_rotate.c \
-			./sorting/ps_sort3.c  ./tests/test_sort3.c
+			./moves/ps_utils.c ./sorting/ps_sort3.c ./sorting/ps_sort5.c  ./tests/test_sort10.c \
+			./sorting/ps_sort10.c
 			
 # BONUS_SRCS 	= checker.c
 

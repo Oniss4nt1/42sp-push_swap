@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 11:02:04 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/22 17:26:30 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/25 17:35:35 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	push_a_to_b(t_stack *stack)
 	free(first);
 	stack->size_a--;
 	stack->size_b++;
+	ft_printf("pb\n");
+	print_stacks(stack);
 }
 
 void	push_b_to_a(t_stack *stack)
@@ -38,4 +40,6 @@ void	push_b_to_a(t_stack *stack)
 	free(first);
 	stack->size_a++;
 	stack->size_b--;
+	ft_printf("pa\n");
+	print_stacks(stack);
 }

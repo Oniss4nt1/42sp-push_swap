@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:04:15 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/22 18:56:05 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:00:00 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@ typedef enum e_bool
 	is_true
 }				t_bool;
 
+typedef struct s_numbers
+{
+	int *num;
+	int size;
+} t_numbers;
+
 typedef struct s_node
 {
 	int		value;
@@ -71,7 +77,7 @@ void	add_to_head(t_node **head, int value);
 
 t_bool is_integer(char *str);
 t_bool is_duplicate(t_node *head);
-int *split_and_convert(char *str);
+t_numbers split_and_convert(char *str);
 t_bool check_value(char *str);
 t_bool	process_arguments(t_stack *stack, int argc, char **argv);
 t_bool	is_sorted(t_node *head);
@@ -83,17 +89,29 @@ void	free_stack(t_stack *stack);
 
 //############################# OPERATIONS #####################################
 
-void	swap(t_node **head);
-void	double_swap(t_stack *stack);
-void	rotate(t_node **head);
+void	swap(t_node **head, char move, t_stack *stack);
+void 	double_swap(t_stack *stack);
+void	rotate(t_node **head, char move, t_stack *stack);
 void	double_rotate(t_stack *stack);
 void	push_a_to_b(t_stack *stack);
 void	push_b_to_a(t_stack *stack);
-void	reverse_rotate(t_node **head);
+void	reverse_rotate(t_node **head, char move, t_stack *stack);
 void	double_reverse_rr(t_stack *stack);
 
 //############################# SORT ###########################################
 
-void	sort_three(t_node **head);
+void	sort_three(t_node **head, int size, t_stack *stack);
+void	sort_five(t_stack *stack);
+void	quick_sort(t_stack *a, t_stack *b, int size);
+
+//############################# UTILS ##########################################
+
+int	find_min(t_node *head);
+int	median_of_three(t_stack *stack);
+int get_nth_value(t_node *head, int n);
+
+//############################# DEBUG ##########################################
+
+void	print_stacks(t_stack *stack);
 
 # endif

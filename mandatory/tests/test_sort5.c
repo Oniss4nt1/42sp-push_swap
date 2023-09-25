@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_sort3.c                                       :+:      :+:    :+:   */
+/*   test_sort5.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:41:58 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/22 19:29:12 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/25 17:41:23 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,32 @@ int main(int argc, char *argv[])
 	}
 
 	
-	ft_printf("Stack B:\n");
-	push_a_to_b(stack);
-	push_a_to_b(stack);
-	push_a_to_b(stack);
-	
-	sort_three(&stack->head_b, stack->size_b);
-	while (stack->head_b)
-	{
-		ft_putnbr_fd(stack->head_b->value, 1);
-		ft_putchar_fd('\n', 1);
-		stack->head_b = stack->head_b->next;
-	}
-	ft_printf("End of stack B\n");
+	ft_printf("Stack A:\n");
+	// push_a_to_b(stack);
+	// push_a_to_b(stack);
+	// push_a_to_b(stack);
+	// push_a_to_b(stack);
+	// push_a_to_b(stack);
 
+	sort_five(stack);
+	
+	// while (stack->head_a)
+	// {
+	// 	ft_putnbr_fd(stack->head_a->value, 1);
+	// 	ft_putchar_fd('\n', 1);
+	// 	stack->head_a = stack->head_a->next;
+	// }
+	// ft_printf("End of stack A\n");
+
+	
+	// ft_printf("Stack B:\n");
+	// while (stack->head_b)
+	// {
+	// 	ft_putnbr_fd(stack->head_b->value, 1);
+	// 	ft_putchar_fd('\n', 1);
+	// 	stack->head_b = stack->head_b->next;
+	// }
+	// ft_printf("End of stack B\n");
 
 	free_stack(stack);
 	return (0);	

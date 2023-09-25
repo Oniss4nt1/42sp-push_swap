@@ -6,14 +6,14 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:10:27 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/22 12:09:49 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:30:17 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 t_bool is_integer(char *str);
-int *split_and_convert(char *str);
+t_numbers split_and_convert(char *str);
 t_bool check_value(char *str);
 t_bool is_duplicate(t_node *head);
 
@@ -30,7 +30,7 @@ t_bool	is_sorted(t_node *head)
 
 t_bool process_arguments(t_stack *stack, int argc, char **argv)
 {
-	int *numbers;
+	t_numbers array;
 	int i;
 	int j;
 
@@ -47,20 +47,20 @@ t_bool process_arguments(t_stack *stack, int argc, char **argv)
 			ft_putstr_fd("Error\nInvalid value\n", 2);
 			return (is_false);
 		}
-		numbers = split_and_convert(argv[i]);
+		array = split_and_convert(argv[i]);
 		i++;
 		j = 0;
-		while (numbers[j])
+		while (j < array.size)
 		{
-			add_to_list(&stack->head_a, stack, numbers[j]);
+			add_to_list(&stack->head_a, stack, array.num[j]);
 			if (is_duplicate(stack->head_a))
 			{
-				free(numbers);
+				free(array.num);
 				return (is_false);
 			}
 			j++;
 		}
-		free(numbers);
+		free(array.num);
 	}
 	return (is_true);
 }
@@ -91,27 +91,26 @@ t_bool is_integer(char *str)
 }
 
 
-int *split_and_convert(char *str)
+t_numbers split_and_convert(char *str)
 {
 	char **strings;
-	int *numbers;
-	int len;
+	t_numbers array;
+	int i;
 
-	len = 0;
+	i = 0;
 	strings = ft_split(str, ' ');
-	while (strings[len])
-		len++;
-	numbers = malloc(sizeof(int) * (len + 1));
-	len = 0;
-	while (strings[len])
+	while (strings[i])
+		i++;
+	array.size = i;
+	array.num = malloc(sizeof(int) * (i + 1));
+	i = 0;
+	while (strings[i])
 	{
-		numbers[len] = ft_atoi(strings[len]);
-		free(strings[len]);
-		len++;
+		array.num[i] = ft_atoi(strings[i]);
+		i++;
 	}
-	numbers[len] = 0;
 	free(strings);
-	return (numbers);
+	return (array);
 }
 
 t_bool is_duplicate(t_node *head)
