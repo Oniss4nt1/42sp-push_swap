@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:41:58 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/25 19:07:22 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/26 14:53:37 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
 	// push_a_to_b(stack);
 
 	sort_ten(stack);
+	// quick_sort(stack, stack, stack->size_a);
 	
 	// while (stack->head_a)
 	// {
@@ -61,7 +62,7 @@ int main(int argc, char *argv[])
 	// 	stack->head_b = stack->head_b->next;
 	// }
 	// ft_printf("End of stack B\n");
-
+	ft_printf("Moves: %d\n", stack->moves);
 	free_stack(stack);
 	return (0);	
 }

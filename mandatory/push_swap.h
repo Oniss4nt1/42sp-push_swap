@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:04:15 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/25 19:07:53 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/26 14:52:55 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_stack
 	int min_b;
 	int max_a;
 	int max_b;
+	int moves;
 	t_node *head_a;
 	t_node *head_b;
 }			t_stack;

@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:07:40 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/25 17:35:00 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/26 14:57:40 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,20 @@ void	swap(t_node **head, char move, t_stack *stack)
 	*head = second;
 
 	if (move == 'a')
+	{
 		ft_printf("sa\n");
+		stack->moves++; //TODO: remove this line
+	}
 	else if (move == 'b')
+	{
 		ft_printf("sb\n");
+		stack->moves++; //TODO: remove this line
+	}
 	else if (move == 's')
+	{
 		ft_printf("ss\n");
+		stack->moves++; //TODO: remove this line
+	}
 	print_stacks(stack);
 }
 

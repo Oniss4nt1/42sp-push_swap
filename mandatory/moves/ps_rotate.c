@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:00:10 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/25 17:35:15 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/26 14:57:21 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,20 @@ void	rotate(t_node **head, char move, t_stack *stack)
 	last->next = first;
 	
 	if (move == 'a')
+	{
 		ft_printf("ra\n");
+		stack->moves++; //TODO: remove this line
+	}
 	else if (move == 'b')
+	{
 		ft_printf("rb\n");
+		stack->moves++; //TODO: remove this line
+	}
 	else if (move == 'r')
+	{
 		ft_printf("rr\n");
+		stack->moves++; //TODO: remove this line
+	}
 	print_stacks(stack);
 }
 
