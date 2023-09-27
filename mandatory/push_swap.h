@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:04:15 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/26 14:52:55 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:29:30 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,16 +103,17 @@ void	double_reverse_rr(t_stack *stack);
 
 void	sort_three(t_node **head, int size, t_stack *stack);
 void	sort_five(t_stack *stack);
-void	sort_ten(t_stack *stack);
-// void	quick_sort(t_stack *a, t_stack *b, int size);
+void	sort_short(t_stack *stack);
 
 //############################# UTILS ##########################################
 
 int	find_min(t_node *head);
 void	move_min_top(t_stack *stack);
 int find_distance_top(t_node *head, int min);
-// int	median_of_three(t_stack *stack);
-// int get_nth_value(t_node *head, int n);
+
+void	merge_sort(t_node *head_ref);
+t_node *merge(t_node *a, t_node *b);
+void partition(t_node *head, t_node **front, t_node **back);
 
 //############################# DEBUG ##########################################
 

@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:10:27 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/25 16:30:17 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/27 10:58:25 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ t_numbers split_and_convert(char *str)
 	while (strings[i])
 	{
 		array.num[i] = ft_atoi(strings[i]);
+		free(strings[i]);
 		i++;
 	}
 	free(strings);
