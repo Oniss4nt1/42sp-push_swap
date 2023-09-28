@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 17:59:03 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/27 18:26:13 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/28 17:56:47 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,21 @@ t_node *merge(t_node *a, t_node *b);
 void partition(t_node *head, t_node **front, t_node **back);
 void	print_list(t_node *head);
 
-void	merge_sort(t_node **head_ref)
+
+t_node	*merge_sort(t_node *head)
 {
-	t_node *head;
 	t_node *a;
 	t_node *b;
 	
-	head = *head_ref;
 	if ((head == NULL) || (head->next == NULL))
-		return ;
+		return head;
 
 	partition(head, &a, &b);
 
-	merge_sort(&a);
-	merge_sort(&b);
+	a = merge_sort(a);
+	b = merge_sort(b);
 
-	*head_ref = merge(a, b);
+	return merge(a, b);
 }
 
 t_node *merge(t_node *a, t_node *b)
@@ -122,17 +121,11 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	
-	// add_to_head(&stack->head_a, 50);
-	// add_to_head(&stack->head_a, -2);
-	// add_to_head(&stack->head_a, 2);
-	// add_to_head(&stack->head_a, 90);
-	// add_to_head(&stack->head_a, 20);
-	// add_to_head(&stack->head_a, -40);
-	// add_to_head(&stack->head_a, 7);
-	// add_to_head(&stack->head_a, 12);
-	// add_to_head(&stack->head_a, -80);
-
-	merge_sort(&stack->head_a);
+	stack->head_a = merge_sort(stack->head_a); //
+	//When we use sort algorithms, we need to update the stack size.
+	// Although merge_sort organizes the list, it does not update the stack size.
+	// That's why we need to update the stack size here.
+	
 	
 	print_list(stack->head_a);
 

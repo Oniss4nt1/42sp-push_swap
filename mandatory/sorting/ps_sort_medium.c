@@ -6,14 +6,27 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:24:11 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/27 19:18:32 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/28 18:38:56 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack *copy_stack(t_node *head);
+t_node *copy_stack(t_node *head, t_stack *stack_k);
 int	get_key_nbr(t_stack *stack_k, int key);
+
+void	print_list(t_node *head)
+{
+	t_node *temp;
+
+	temp = head;
+	while (temp != NULL)
+	{
+		ft_printf("%d\n", temp->value);
+		temp = temp->next;
+	}
+	ft_printf("\n");
+}
 
 void	sort_medium(t_stack *stack)
 {
@@ -22,8 +35,10 @@ void	sort_medium(t_stack *stack)
 	int i;
 
 	i = 1;
-	stack_k = copy_stack(stack); // Function to copy stack A to stack K
-	merge_sort(&stack_k->head_a); // Function to sort stack K
+	stack_k = init_stack();
+	stack_k->head_a = copy_stack(stack->head_a, stack_k); // Function to copy stack A
+	stack_k->head_a = merge_sort(stack_k->head_a); // Function to sort stack A
+	// print_list(stack_k->head_a);
 
 	while (i <= 4)
 	{
@@ -40,7 +55,7 @@ void	sort_medium(t_stack *stack)
 	free_stack(stack_k);	
 }
 
-t_stack *copy_stack(t_node *head)
+t_node *copy_stack(t_node *head, t_stack *stack_k)
 {
 	t_node *new_head;
 	t_node *current;
@@ -49,7 +64,7 @@ t_stack *copy_stack(t_node *head)
 	current = head;
 	while (current)
 	{
-		add_to_head(&new_head, current->value);
+		add_to_list(&new_head, stack_k, current->value);
 		current = current->next;
 	}
 	return (new_head);
@@ -66,27 +81,59 @@ int	get_key_nbr(t_stack *stack_k, int key)
 	while (current)
 	{
 		if (i == stack_k->size_a / 4 * key)
-		{
 			key_nbr = current->value;
-			break ;
-		}
+		i++;
 		current = current->next;
-		i++;		
 	}
+	return (key_nbr);
 }
+
 
 void	move_elements(t_stack *stack, int key_nbr)
 {
-	int i;
-
-	i = 0;
-	while (i < stack->size_a)
+	while (stack->head_a->value < key_nbr)
 	{
+		optimal_move(stack, key_nbr);
 		if (stack->head_a->value < key_nbr)
 			push_a_to_b(stack);
-		else
-			rotate(&stack->head_a, 'a', stack);
-		i++;
 	}
-
 }
+
+void	optimal_move(t_stack *stack, int key_nbr)
+{
+	if (needs_swap(stack->head_a) && needs_swap(stack->head_b))
+		double_swap(stack);
+	else if (next_element_is_top(stack->head_a, key_nbr) && next_element_is_top(stack->head_b, key_nbr))
+		double_rotate(stack);
+	else if (next_element_is_bottom(stack->head_a, key_nbr) && next_element_is_bottom(stack->head_b, key_nbr))
+		double_reverse_rr(stack);
+}
+
+t_bool needs_swap(t_node *head)
+{
+	if (head && head->next && head->value && head->next->value)
+		return (is_true);
+	return (is_false);
+}
+
+t_bool next_element_is_top(t_node *head, int key_nbr)
+{
+	if (head && head->next && head->value && head->next->value == key_nbr)
+		return (is_true);
+	return (is_false);
+}
+
+t_bool next_element_is_bottom(t_node *head, int key_nbr)
+{
+	t_node *current;
+
+	current = head;
+	while (current)
+	{
+		if (current && current->value == key_nbr)
+			return (is_true);
+		current = current->next;
+	}
+	return (is_false);
+}
+

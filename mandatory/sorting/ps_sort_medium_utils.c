@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 18:27:45 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/27 18:44:45 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/28 18:09:11 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,20 @@
 t_node *merge(t_node *a, t_node *b);
 void partition(t_node *head, t_node **front, t_node **back);
 
-void	merge_sort(t_node *head_ref)
+t_node	*merge_sort(t_node *head)
 {
-	t_node *head;
 	t_node *a;
 	t_node *b;
 	
-	head = head_ref;
 	if ((head == NULL) || (head->next == NULL))
-		return ;
+		return head;
 
 	partition(head, &a, &b);
 
-	merge_sort(&a);
-	merge_sort(&b);
+	a = merge_sort(a);
+	b = merge_sort(b);
 
-	head_ref = merge(a, b);
+	return merge(a, b);
 }
 
 t_node *merge(t_node *a, t_node *b)

@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:04:15 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/27 18:29:30 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/28 17:49:38 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ void	double_reverse_rr(t_stack *stack);
 void	sort_three(t_node **head, int size, t_stack *stack);
 void	sort_five(t_stack *stack);
 void	sort_short(t_stack *stack);
+void	sort_medium(t_stack *stack);
 
 //############################# UTILS ##########################################
 
@@ -111,12 +112,21 @@ int	find_min(t_node *head);
 void	move_min_top(t_stack *stack);
 int find_distance_top(t_node *head, int min);
 
-void	merge_sort(t_node *head_ref);
+t_node	*merge_sort(t_node *head);
 t_node *merge(t_node *a, t_node *b);
 void partition(t_node *head, t_node **front, t_node **back);
+
+t_node *copy_stack(t_node *head, t_stack *stack_k);
+int	get_key_nbr(t_stack *stack_k, int key);
+void	move_elements(t_stack *stack, int key_nbr);
+void	optimal_move(t_stack *stack, int key_nbr);
+t_bool needs_swap(t_node *head);
+t_bool next_element_is_top(t_node *head, int key_nbr);
+t_bool next_element_is_bottom(t_node *head, int key_nbr);
 
 //############################# DEBUG ##########################################
 
 void	print_stacks(t_stack *stack);
+void	print_list(t_node *head);
 
 # endif
