@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:24:11 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/28 18:38:56 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:22:25 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	sort_medium(t_stack *stack)
 	{
 		key_nbr = get_key_nbr(stack_k, i); // Function to get the key number
 		move_elements(stack, key_nbr); // Function to move numbers less than key number to stack B
-	}
-	
+		i++;
+	}	
 	while (stack->size_b > 0)
 	{
 		push_b_to_a(stack);
@@ -88,52 +88,101 @@ int	get_key_nbr(t_stack *stack_k, int key)
 	return (key_nbr);
 }
 
-
 void	move_elements(t_stack *stack, int key_nbr)
 {
-	while (stack->head_a->value < key_nbr)
+	int	next_nbr;
+
+	next_nbr = find_next_nbr(stack->head_a, key_nbr);
+	while (next_nbr != 0)
 	{
-		optimal_move(stack, key_nbr);
-		if (stack->head_a->value < key_nbr)
-			push_a_to_b(stack);
+		move_nbr_to_top(stack, next_nbr);
+		push_a_to_b(stack);
+		next_nbr = find_next_nbr(stack->head_a, key_nbr);
 	}
 }
 
-void	optimal_move(t_stack *stack, int key_nbr)
-{
-	if (needs_swap(stack->head_a) && needs_swap(stack->head_b))
-		double_swap(stack);
-	else if (next_element_is_top(stack->head_a, key_nbr) && next_element_is_top(stack->head_b, key_nbr))
-		double_rotate(stack);
-	else if (next_element_is_bottom(stack->head_a, key_nbr) && next_element_is_bottom(stack->head_b, key_nbr))
-		double_reverse_rr(stack);
-}
 
-t_bool needs_swap(t_node *head)
-{
-	if (head && head->next && head->value && head->next->value)
-		return (is_true);
-	return (is_false);
-}
 
-t_bool next_element_is_top(t_node *head, int key_nbr)
-{
-	if (head && head->next && head->value && head->next->value == key_nbr)
-		return (is_true);
-	return (is_false);
-}
 
-t_bool next_element_is_bottom(t_node *head, int key_nbr)
-{
-	t_node *current;
 
-	current = head;
-	while (current)
-	{
-		if (current && current->value == key_nbr)
-			return (is_true);
-		current = current->next;
-	}
-	return (is_false);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// void optimal_move(t_stack *stack, int key_nbr)
+// {
+//     if (next_element_is_top(stack->head_a, key_nbr) && next_element_is_top(stack->head_b, key_nbr))
+//     {
+//         double_rotate(stack);
+//     }
+//     else if (next_element_is_bottom(stack->head_a, key_nbr) && next_element_is_bottom(stack->head_b, key_nbr))
+//     {
+//         double_reverse_rr(stack);
+//     }
+//     else if (needs_swap(stack->head_a) && needs_swap(stack->head_b))
+//     {
+//         double_swap(stack);
+//     }
+//     else
+//     {
+//         if (next_element_is_top(stack->head_a, key_nbr))
+//         {
+//             rotate(&stack->head_a, 'a', stack);
+//         }
+//         else if (next_element_is_bottom(stack->head_a, key_nbr))
+//         {
+//             reverse_rotate(&stack->head_a, 'a', stack);
+//         }
+
+//         if (next_element_is_top(stack->head_b, key_nbr))
+//         {
+//             rotate(&stack->head_b, 'b', stack);
+//         }
+//         else if (next_element_is_bottom(stack->head_b, key_nbr))
+//         {
+//             reverse_rotate(&stack->head_b, 'b', stack);
+//         }
+//     }
+// }
+
+
+// t_bool needs_swap(t_node *head)
+// {
+// 	if (head && head->next && head->value && head->next->value)
+// 		return (is_true);
+// 	return (is_false);
+// }
+
+// t_bool next_element_is_top(t_node *head, int key_nbr)
+// {
+// 	if (head && head->next && head->value && head->next->value == key_nbr)
+// 		return (is_true);
+// 	return (is_false);
+// }
+
+// t_bool next_element_is_bottom(t_node *head, int key_nbr)
+// {
+// 	t_node *current;
+
+// 	current = head;
+// 	while (current)
+// 	{
+// 		if (current && current->value == key_nbr)
+// 			return (is_true);
+// 		current = current->next;
+// 	}
+// 	return (is_false);
+// }
 

@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 11:02:04 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/27 14:02:32 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/29 11:57:05 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	push_b_to_a(t_stack *stack)
 	free(first);
 	stack->size_a++;
 	stack->size_b--;
-	ft_printf("pb\n");
+	ft_printf("pa\n");
 	print_stacks(stack);
 	stack->moves++; //TODO: remove this line
 

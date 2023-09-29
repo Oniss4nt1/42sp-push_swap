@@ -22,6 +22,7 @@ MAND_SRCS 	= ./init/ps_add.c ./init/ps_checks.c ./init/ps_init.c ps_memory_free.
 			./moves/ps_swap.c ./moves/ps_rotate.c ./moves/ps_push.c ./moves/ps_reverse_rotate.c \
 			./moves/ps_utils.c ./sorting/ps_sort3.c ./sorting/ps_sort5.c  ./tests/test_sort_medium.c \
 			./sorting/ps_sort_short.c ./sorting/ps_sort_medium.c ./sorting/ps_sort_medium_utils.c \
+			./sorting/ps_sort_medium_utils2.c
 			
 # BONUS_SRCS 	= checker.c
 

@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:04:15 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/28 17:49:38 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:54:04 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,10 +119,14 @@ void partition(t_node *head, t_node **front, t_node **back);
 t_node *copy_stack(t_node *head, t_stack *stack_k);
 int	get_key_nbr(t_stack *stack_k, int key);
 void	move_elements(t_stack *stack, int key_nbr);
-void	optimal_move(t_stack *stack, int key_nbr);
-t_bool needs_swap(t_node *head);
-t_bool next_element_is_top(t_node *head, int key_nbr);
-t_bool next_element_is_bottom(t_node *head, int key_nbr);
+// void	optimal_move(t_stack *stack, int key_nbr);
+// t_bool needs_swap(t_node *head);
+// t_bool next_element_is_top(t_node *head, int key_nbr);
+// t_bool next_element_is_bottom(t_node *head, int key_nbr);
+
+int	find_next_nbr(t_node *head, int key_nbr);
+void	move_nbr_to_top(t_stack *stack, int nbr);
+int	find_distance_toop(t_node *head, int nbr);
 
 //############################# DEBUG ##########################################
 
