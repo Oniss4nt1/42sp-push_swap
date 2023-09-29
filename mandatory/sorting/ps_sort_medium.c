@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:24:11 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/29 16:22:25 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/09/29 18:40:22 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,82 @@ void	move_elements(t_stack *stack, int key_nbr)
 	}
 }
 
+// void sort_hundred(t_stack *stack)
+// {
+//     t_stack *stack_k;
+//     int key_nbr;
+//     int i;
 
+//     stack_k = init_stack();
+//     stack_k->head_a = copy_stack(stack->head_a, stack_k);
+//     stack_k->head_a = merge_sort(stack_k->head_a);
+
+//     for (i = 1; i <= 10; i++)
+//     {
+//         key_nbr = get_key_nbr(stack_k, i);
+//         while (stack_contains(stack->head_a, key_nbr))
+//         {
+//             move_nbr_to_top(stack, find_cheapest_nbr(stack->head_a, key_nbr));
+//             push_a_to_b(stack);
+//         }
+//     }
+
+//     while (stack->size_b > 0)
+//     {
+//         if (next_nbr_in_stack_b(stack->head_b) > stack->head_a->value)
+//             move_nbr_to_top(stack, next_nbr_in_stack_b(stack->head_b));
+//         if (stack->head_b->value > stack->head_a->value)
+//             reverse_rotate(&stack->head_a, 'a', stack);
+//         else
+//             push_b_to_a(stack);
+//     }
+
+//     free_stack(stack_k);
+// }
+
+
+// int find_cheapest_nbr(t_node *head, int key_nbr)
+// {
+//     t_node *temp;
+//     int cheapest_nbr;
+//     int min_moves;
+//     int moves;
+
+//     temp = head;
+//     cheapest_nbr = temp->value;
+//     min_moves = find_distance_top(head, cheapest_nbr);
+//     while (temp != NULL)
+//     {
+//         if (temp->value <= key_nbr)
+//         {
+//             moves = find_distance_top(head, temp->value);
+//             if (moves < min_moves)
+//             {
+//                 cheapest_nbr = temp->value;
+//                 min_moves = moves;
+//             }
+//         }
+//         temp = temp->next;
+//     }
+//     return (cheapest_nbr);
+// }
+
+
+// int next_nbr_in_stack_b(t_node *head, int top_a)
+// {
+//     t_node *temp;
+//     int next_nbr;
+
+//     temp = head;
+//     next_nbr = temp->value;
+//     while (temp != NULL)
+//     {
+//         if (temp->value > top_a && temp->value < next_nbr)
+//             next_nbr = temp->value;
+//         temp = temp->next;
+//     }
+//     return (next_nbr);
+// }
 
 
 
