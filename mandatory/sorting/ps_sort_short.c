@@ -14,9 +14,7 @@
 
 void sort_short(t_stack *stack)
 {
-    int i;
 
-    i = 0;
 
     if (stack->size_a == 2)
     {

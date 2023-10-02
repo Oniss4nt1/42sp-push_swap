@@ -36,16 +36,16 @@ void	sort_medium(t_stack *stack)
 
 	i = 1;
 	stack_k = init_stack();
-	stack_k->head_a = copy_stack(stack->head_a, stack_k); // Function to copy stack A
-	stack_k->head_a = merge_sort(stack_k->head_a); // Function to sort stack A
-	// print_list(stack_k->head_a);
-
+	stack_k->head_a = copy_stack(stack->head_a, stack_k);
+	stack_k->head_a = merge_sort(stack_k->head_a);
 	while (i <= 4)
 	{
-		key_nbr = get_key_nbr(stack_k, i); // Function to get the key number
-		move_elements(stack, key_nbr); // Function to move numbers less than key number to stack B
+		key_nbr = get_key_nbr(stack_k, i);
+		move_elements(stack, key_nbr);
 		i++;
-	}	
+	}
+	if (stack->size_a == 3)
+		sort_three(&stack->head_a, 3, stack);
 	while (stack->size_b > 0)
 	{
 		push_b_to_a(stack);
@@ -93,13 +93,21 @@ void	move_elements(t_stack *stack, int key_nbr)
 	int	next_nbr;
 
 	next_nbr = find_next_nbr(stack->head_a, key_nbr);
-	while (next_nbr != 0 && !is_sorted(stack->head_a))
+	while (next_nbr != 0 && stack->size_a > 3)
 	{
 		move_nbr_to_top(stack, next_nbr);
 		push_a_to_b(stack);
 		next_nbr = find_next_nbr(stack->head_a, key_nbr);
 	}
+	if (stack->size_a == 3)
+			sort_three(&stack->head_a, 3, stack);
+		
+	if (is_sorted(stack->head_b) == is_false)
+		sort_b(stack);
 }
+
+
+
 
 
 

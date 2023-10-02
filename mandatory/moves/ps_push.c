@@ -26,7 +26,7 @@ void	push_a_to_b(t_stack *stack)
 	stack->size_a--;
 	stack->size_b++;
 	ft_printf("pb\n");
-	// print_stacks(stack);
+	print_stacks(stack);
 	stack->moves++; //TODO: remove this line
 }
 

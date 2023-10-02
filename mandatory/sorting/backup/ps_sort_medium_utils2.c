@@ -44,19 +44,38 @@ int	get_index(t_node *head, int value)
 	return (-1);
 }
 
-void	move_nbr_to_top(t_stack *stack, int next_nbr)
-{
-	int index;
+//void	move_nbr_to_top(t_stack *stack, int next_nbr)
+//{
+//	int index;
+//
+//	index = get_index(stack->head_a, next_nbr);
+//	if (index < stack->size_a / 2)
+//	{
+//		while (stack->head_a->value != next_nbr)
+//			rotate(&stack->head_a, 'a', stack);
+//	}
+//	else
+//	{
+//		while (stack->head_a->value != next_nbr)
+//			reverse_rotate(&stack->head_a, 'a', stack);
+//	}
+//}
+//
+//void	move_nbr_to_top_b(t_stack *stack, int next_nbr)
+//{
+//	int	index;
+//	
+//	index = get_index(stack->head_a, next_nbr);
+//	if (index < stac->size_a / 2)
+//	{
+//		while (stack->head_a->value != next_nbr)
+//			rotate(&stack->head_b, 'b', stack);
+//	}
+//	else
+//	{
+//		while (stack->head_b->value != next_nbr)
+//			reverse_rotate(&stack->head_b, 'b', stack);
+//	}
+//}
+//
 
-	index = get_index(stack->head_a, next_nbr);
-	if (index < stack->size_a / 2)
-	{
-		while (stack->head_a->value != next_nbr)
-			rotate(&stack->head_a, 'a', stack);
-	}
-	else
-	{
-		while (stack->head_a->value != next_nbr)
-			reverse_rotate(&stack->head_a, 'a', stack);
-	}
-}

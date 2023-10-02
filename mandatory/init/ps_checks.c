@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <limits.h>
 
 t_bool is_integer(char *str);
 t_numbers split_and_convert(char *str);
@@ -143,7 +144,7 @@ t_bool check_value(char *str)
 	long int value;
 
 	value = ft_atol(str); 
-	if (value > 2147483647 || value < -2147483648)
+	if (value > INT_MAX || value < INT_MIN)
 	{
 		ft_putstr_fd("Error\nValue out of range\n", 2);
 		return (is_false);
