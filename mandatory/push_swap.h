@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:04:15 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/29 18:21:18 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/02 18:07:23 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,10 @@ void	move_elements(t_stack *stack, int key_nbr);
 
 int	find_next_nbr(t_node *head, int key_nbr);
 void	move_nbr_to_top(t_stack *stack, int nbr);
+
+void	normalize_sort(t_stack *stack);
+void	radix_sort(t_stack *stack);
+void	radix_sort_stack_b(t_stack *stack, int num_digits, int i);
 
 //############################# DEBUG ##########################################
 
