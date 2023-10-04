@@ -6,17 +6,16 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:10:27 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/27 10:58:25 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:24:19 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <limits.h>
 
-t_bool is_integer(char *str);
-t_numbers split_and_convert(char *str);
-t_bool check_value(char *str);
-t_bool is_duplicate(t_node *head);
+t_bool		is_integer(char *str);
+t_numbers	split_and_convert(char *str);
+t_bool		check_value(int num);
+t_bool		is_duplicate(t_node *head);
 
 t_bool	is_sorted(t_node *head)
 {
@@ -29,23 +28,18 @@ t_bool	is_sorted(t_node *head)
 	return (is_true);
 }
 
-t_bool process_arguments(t_stack *stack, int argc, char **argv)
+t_bool	process_arguments(t_stack *stack, int argc, char **argv)
 {
-	t_numbers array;
-	int i;
-	int j;
+	int			i;
+	int			j;
+	t_numbers	array;
 
 	i = 1;
 	while (i < argc)
 	{
 		if (!is_integer(argv[i]))
 		{
-			ft_putstr_fd("Error\nInvalid number\n", 2);
-			return (is_false);
-		}
-		if (!check_value(argv[i]))
-		{
-			ft_putstr_fd("Error\nInvalid value\n", 2);
+			ft_putstr_fd("Error\nNot an integer\n", 2);
 			return (is_false);
 		}
 		array = split_and_convert(argv[i]);
@@ -66,13 +60,12 @@ t_bool process_arguments(t_stack *stack, int argc, char **argv)
 	return (is_true);
 }
 
-t_bool is_integer(char *str)
+t_bool	is_integer(char *str)
 {
 	if (*str == '-')
 		str++;
 	while ((*str && *str == ' ') || (*str == '\"'))
 		str++;
-
 	if (!str || !*str)
 		return (is_false);
 	while (*str)
@@ -80,7 +73,7 @@ t_bool is_integer(char *str)
 		if (*str == ' ' || *str == '\"')
 		{
 			str++;
-			continue;
+			continue ;
 		}
 		if (*str == '-')
 			str++;
@@ -91,23 +84,28 @@ t_bool is_integer(char *str)
 	return (is_true);
 }
 
-
-t_numbers split_and_convert(char *str)
+t_numbers	split_and_convert(char *str)
 {
-	char **strings;
-	t_numbers array;
-	int i;
+	char		**strings;
+	t_numbers	array;
+	int			i;
 
 	i = 0;
 	strings = ft_split(str, ' ');
 	while (strings[i])
 		i++;
 	array.size = i;
-	array.num = malloc(sizeof(int) * (i + 1));
+	array.num = malloc(sizeof(long int) * (i + 1));
 	i = 0;
 	while (strings[i])
 	{
-		array.num[i] = ft_atoi(strings[i]);
+		array.num[i] = ft_atol(strings[i]);
+		if (array.num[i] > INT_MAX || array.num[i] < INT_MIN)
+		{
+			ft_putstr_fd("Error\nValue out of range\n", 2);
+			free(strings);
+			exit(1);
+		}
 		free(strings[i]);
 		i++;
 	}
@@ -115,10 +113,10 @@ t_numbers split_and_convert(char *str)
 	return (array);
 }
 
-t_bool is_duplicate(t_node *head)
+t_bool	is_duplicate(t_node *head)
 {
-	t_node *current;
-	t_node *next_node;
+	t_node	*current;
+	t_node	*next_node;
 
 	current = head;
 	while (current)
@@ -138,16 +136,12 @@ t_bool is_duplicate(t_node *head)
 	return (is_false);
 }
 
-
-t_bool check_value(char *str)
+t_bool	check_value(int num)
 {
-	long int value;
-
-	value = ft_atol(str); 
-	if (value > INT_MAX || value < INT_MIN)
+	if (num > INT_MAX || num < INT_MIN)
 	{
 		ft_putstr_fd("Error\nValue out of range\n", 2);
-		return (is_false);
+		return (is_true);
 	}
-	return (is_true);
+	return (is_false);
 }

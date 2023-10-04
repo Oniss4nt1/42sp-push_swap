@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:42:44 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/26 16:07:41 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:37:45 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,39 +92,3 @@ int find_distance_top(t_node *head, int min)
 	}
 	return (distance);
 }
-
-// void	move_max_top(t_stack *stack)
-// {
-// 	int max;
-// 	int distance_top;
-// 	int distance_bottom;
-
-// 	max = find_max(stack->head_a);
-// 	distance_top = find_distance_top(stack->head_a, max);
-// 	distance_bottom = stack->size_a - distance_top;
-	
-// 	while (stack->head_a->value != max)
-// 	{
-// 		if (distance_top <= distance_bottom)
-// 			rotate(&stack->head_a, 'a', stack);
-// 		else
-// 			reverse_rotate(&stack->head_a, 'a', stack);
-// 	}
-	
-// }
-
-// int find_max(t_node *head)
-// {
-// 	int max;
-// 	t_node *temp;
-
-// 	temp = head;
-// 	max = temp->value;
-// 	while (temp)
-// 	{
-// 		if (temp->value > max)
-// 			max = temp->value;
-// 		temp = temp->next;
-// 	}
-// 	return (max);
-// }

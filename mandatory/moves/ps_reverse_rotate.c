@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:07:31 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/29 18:27:04 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:04:38 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	reverse_rotate(t_node **head, char move, t_stack *stack)
 		ft_printf("rrr\n");
 		stack->moves++; //TODO: remove this line
 	}
-	print_stacks(stack);
+	// print_stacks(stack);
 	
 }
 

@@ -6,16 +6,15 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:31:44 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/28 14:17:44 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:21:20 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-t_node *init_node(int value)
+t_node	*init_node(int value)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = malloc(sizeof(t_node));
 	if (!node)
@@ -25,9 +24,9 @@ t_node *init_node(int value)
 	return (node);
 }
 
-t_stack *init_stack(void)
+t_stack	*init_stack(void)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)

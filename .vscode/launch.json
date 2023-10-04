@@ -8,11 +8,9 @@
 			"name": "(gdb) Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/push_swap",
-			"args": [
-				"-9 -72 -34 -56 -11 -99 -25 -87 -6 -42 -63 -18 -91 -77 -50 -14 -68 -32 -55 -3 -80 -46 -61 -23 -78 -57 -37 -8 -88 -71 -48 -16 -70 -96 -43 -29 -85 -62 -38 -19 -67 -45 -31 -89 -12 -74 -51 -28 -98 -17 -60 -35 -10 -92 -76 -49 -15 -73 -54 -30 -84 -66 -41 -5 -95 -69 -44 -27 -83 -59 -36 -7 -86 -64 -40 -4 -94 -58 -33 -2 -81 -47 -22 -1 -90 -65 -39 -20 -75 -53 -24"
-			],
-			"stopAtEntry": true,
+			"program": "enter program name, for example ${workspaceFolder}/a.out",
+			"args": [],
+			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
 			"environment": [],
 			"externalConsole": false,

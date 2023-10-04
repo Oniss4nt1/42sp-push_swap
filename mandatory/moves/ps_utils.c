@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:12:44 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/02 18:50:17 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:04:51 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,34 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-void	print_stacks(t_stack *stack)
-{
-	t_node *head_a;
-	t_node *head_b;
+// void	print_stacks(t_stack *stack)
+// {
+// 	t_node *head_a;
+// 	t_node *head_b;
 
-	head_a = stack->head_a;
-	head_b = stack->head_b;
-	ft_printf("-----------------------------------\n");
-	ft_printf("\tA\tB\n");
-	ft_printf("-----------------------------------\n");
+// 	head_a = stack->head_a;
+// 	head_b = stack->head_b;
+// 	ft_printf("-----------------------------------\n");
+// 	ft_printf("\tA\tB\n");
+// 	ft_printf("-----------------------------------\n");
 
-	while (head_a || head_b)
-	{
-		if (head_a)
-		{
-			ft_printf("\t%d", head_a->value);
-			head_a = head_a->next;
-		}
-		else 
-			ft_printf("\t");
-		if (head_b)
-		{
-			ft_printf("\t%d", head_b->value);
-			head_b = head_b->next;
-		}
-		ft_printf("\n");
-	}
-}
+// 	while (head_a || head_b)
+// 	{
+// 		if (head_a)
+// 		{
+// 			ft_printf("\t%d", head_a->value);
+// 			head_a = head_a->next;
+// 		}
+// 		else 
+// 			ft_printf("\t");
+// 		if (head_b)
+// 		{
+// 			ft_printf("\t%d", head_b->value);
+// 			head_b = head_b->next;
+// 		}
+// 		ft_printf("\n");
+// 	}
+// }
 
 // void	print_stacks(t_stack *stack)
 // {

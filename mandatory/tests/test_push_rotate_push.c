@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 16:50:20 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/21 16:52:50 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:19:14 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,12 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	push_b(stack);
-	push_b(stack);
-	push_b(stack);
-	rotate_b(stack);
-	push_a(stack);
+	// push_a_to_b(stack);
+	push_a_to_b(stack);
+	// push_a_to_b(stack);
+	// push_a_to_b(stack);
+	rotate(&stack->head_a, 'a', stack);
+	push_b_to_a(stack);
 	ft_printf("Stack B:\n");
 	while (stack->head_b)
 	{

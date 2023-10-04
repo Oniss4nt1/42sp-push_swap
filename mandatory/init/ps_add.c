@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 18:54:21 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/27 13:49:49 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:22:22 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,10 @@
  *
  */
 
-
-void add_to_list(t_node **head, t_stack *stack, int value)
+void	add_to_list(t_node **head, t_stack *stack, int value)
 {
-	t_node *new_node;
-	t_node *current;
+	t_node	*new_node;
+	t_node	*current;
 
 	new_node = init_node(value);
 	if (!*head)
@@ -62,10 +61,9 @@ void add_to_list(t_node **head, t_stack *stack, int value)
 	}
 }
 
-
 void	add_to_head(t_node **head, int value)
 {
-	t_node *new_node;
+	t_node	*new_node;
 
 	new_node = init_node(value);
 	new_node->next = *head;

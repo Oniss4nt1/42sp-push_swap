@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 17:43:13 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/27 14:01:04 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:13:11 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,3 @@ void	free_stack(t_stack *stack)
 	free_list(stack->head_b);
 	free(stack);
 }
-

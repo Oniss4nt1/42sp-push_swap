@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:41:58 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/22 19:29:12 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/03 14:36:13 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 	push_a_to_b(stack);
 	push_a_to_b(stack);
 	
-	sort_three(&stack->head_b, stack->size_b);
+	sort_three(&stack->head_a, stack->size_a, stack);
 	while (stack->head_b)
 	{
 		ft_putnbr_fd(stack->head_b->value, 1);

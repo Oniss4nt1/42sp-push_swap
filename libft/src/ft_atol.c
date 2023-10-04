@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:52:58 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/18 18:10:05 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:38:48 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ long int	ft_atol(const char *str)
 	result = 0;
 	while (*str == ' ' || *str == '\t' || *str == '\r' || *str == '\n'
 		|| *str == '\v' || *str == '\f')
-	{
 		str++;
-	}
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
