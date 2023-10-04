@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 11:52:05 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/02 14:09:23 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/04 17:04:32 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,16 @@ void	sort(t_stack *stack)
 		pre_sort_slot(stack, 1, stack->size_a);
 		sort_medium(stack);
 	}
-	// else
-	// 	sort_long(stack);
 }
 
 void	pre_sort_slot(t_stack *stack, int num_slot, int slot_size)
 {
-	int key_nbr;
-	int rotate_flag;
-	int values;
-	
+	int	key_nbr;
+	int	rotate_flag;
+	int	values;
+
 	rotate_flag = 0;
-	key_nbr = stack->size_a * num_slot;	
+	key_nbr = stack->size_a * num_slot;
 	values = value_exist(stack->head_a, key_nbr);
 	while (values)
 	{
@@ -55,9 +53,7 @@ void	pre_sort_slot(t_stack *stack, int num_slot, int slot_size)
 				reverse_rotate(&stack->head_b, 'b', stack);
 			else
 				rotate(&stack->head_a, 'a', stack);
-				
 		}
-		values = value_exist(stack->head_a, key_nbr);	
+		values = value_exist(stack->head_a, key_nbr);
 	}
 }
-

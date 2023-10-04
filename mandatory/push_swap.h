@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:04:15 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/04 16:20:17 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/04 17:34:50 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef enum e_bool
 
 typedef struct s_numbers
 {
-	long int		*num;
+	int		*num;
 	int				size;
 }					t_numbers;
 

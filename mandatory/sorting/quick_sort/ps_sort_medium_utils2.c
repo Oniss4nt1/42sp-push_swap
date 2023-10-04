@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 18:27:45 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/29 18:21:09 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/04 17:12:16 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	find_next_nbr(t_node *head, int key_nbr)
 {
-	t_node *current;
+	t_node	*current;
 
 	current = head;
 	while (current)
@@ -28,12 +28,11 @@ int	find_next_nbr(t_node *head, int key_nbr)
 
 int	get_index(t_node *head, int value)
 {
-	int index;
-	t_node *current;
+	int		index;
+	t_node	*current;
 
 	index = 0;
 	current = head;
-
 	while (current)
 	{
 		if (current->value == value)
@@ -46,7 +45,7 @@ int	get_index(t_node *head, int value)
 
 void	move_nbr_to_top(t_stack *stack, int next_nbr)
 {
-	int index;
+	int	index;
 
 	index = get_index(stack->head_a, next_nbr);
 	if (index < stack->size_a / 2)

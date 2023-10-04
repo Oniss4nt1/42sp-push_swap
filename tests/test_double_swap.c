@@ -6,16 +6,16 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:07:46 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/09/22 17:15:17 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:42:14 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_stack *stack;
-	
+
 	if (argc < 2)
 	{
 		ft_putstr_fd("Error\nInvalid number of arguments\n", 2);
@@ -35,8 +35,8 @@ int main(int argc, char *argv[])
 	}
 
 	push(stack, &stack->head_a);
-	push(stack, &stack->head_a);  
-	push(stack, &stack->head_a); 
+	push(stack, &stack->head_a);
+	push(stack, &stack->head_a);
 	double_swap(stack);
 	ft_printf("Stack B:\n");
 	while (stack->head_b)
@@ -55,7 +55,6 @@ int main(int argc, char *argv[])
 	}
 	ft_printf("End of stack A\n");
 
-
 	free_stack(stack);
-	return (0);	
+	return (0);
 }

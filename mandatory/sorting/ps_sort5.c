@@ -6,24 +6,23 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:42:44 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/04 16:37:45 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:40:53 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	find_min(t_node *head);
+int		find_min(t_node *head);
 void	move_min_top(t_stack *stack);
-int find_distance_top(t_node *head, int min);
+int		find_distance_top(t_node *head, int min);
 
 void	sort_five(t_stack *stack)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (stack->size_a < 5)
 		return ;
-
 	while (i < 2)
 	{
 		move_min_top(stack);
@@ -39,13 +38,12 @@ void	sort_five(t_stack *stack)
 			swap(&stack->head_a, 'a', stack);
 		i++;
 	}
-	
 }
 
 int	find_min(t_node *head)
 {
-	int	min;
-	t_node *tmp;
+	int		min;
+	t_node	*tmp;
 
 	tmp = head;
 	min = tmp->value;
@@ -56,19 +54,17 @@ int	find_min(t_node *head)
 		tmp = tmp->next;
 	}
 	return (min);
-	
 }
 
 void	move_min_top(t_stack *stack)
 {
 	int	min;
-	int distance_top;
-	int distance_bottom;
+	int	distance_top;
+	int	distance_bottom;
 
 	min = find_min(stack->head_a);
 	distance_top = find_distance_top(stack->head_a, min);
 	distance_bottom = stack->size_a - distance_top;
-
 	while (stack->head_a->value != min)
 	{
 		if (distance_top <= distance_bottom)
@@ -78,10 +74,10 @@ void	move_min_top(t_stack *stack)
 	}
 }
 
-int find_distance_top(t_node *head, int min)
+int	find_distance_top(t_node *head, int min)
 {
-	int distance;
-	t_node *temp;
+	int		distance;
+	t_node	*temp;
 
 	distance = 0;
 	temp = head;

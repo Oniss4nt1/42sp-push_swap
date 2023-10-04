@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:07:31 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/03 18:04:38 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/04 17:02:45 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	reverse_rotate(t_node **head, char move, t_stack *stack)
 {
-	t_node *last;
-	t_node *penultimate;
+	t_node	*last;
+	t_node	*penultimate;
 
 	if (!*head || !(*head)->next)
 		return ;
@@ -27,26 +27,23 @@ void	reverse_rotate(t_node **head, char move, t_stack *stack)
 		last = last->next;
 	}
 	penultimate->next = NULL;
- 	last->next = *head;
+	last->next = *head;
 	*head = last;
-
 	if (move == 'a')
 	{
 		ft_printf("rra\n");
-		stack->moves++; //TODO: remove this line
+		stack->moves++;
 	}
 	else if (move == 'b')
 	{
 		ft_printf("rrb\n");
-		stack->moves++; //TODO: remove this line
+		stack->moves++;
 	}
 	else if (move == 'r')
 	{
 		ft_printf("rrr\n");
-		stack->moves++; //TODO: remove this line
+		stack->moves++;
 	}
-	// print_stacks(stack);
-	
 }
 
 void	double_reverse_rr(t_stack *stack)

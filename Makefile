@@ -18,7 +18,7 @@ HEADER 		= ./mandatory/
 ################################ Sources ####################################
 
 SUBDIRS 	= mandatory
-MAND_SRCS 	= ./init/ps_add.c ./init/ps_checks.c ./init/ps_init.c ps_memory_free.c \
+MAND_SRCS 	= ./init/ps_add.c ./init/ps_checks.c ./init/ps_checks2.c ./init/ps_init.c ps_memory_free.c \
 			./moves/ps_swap.c ./moves/ps_rotate.c ./moves/ps_push.c ./moves/ps_reverse_rotate.c \
 			./moves/ps_utils.c ./sorting/ps_sort3.c ./sorting/ps_sort5.c  ./tests/test_radix.c \
 			./sorting/ps_sort_short.c ./sorting/radix/ps_radix.c
