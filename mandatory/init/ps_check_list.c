@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_checks2.c                                       :+:      :+:    :+:   */
+/*   ps_check_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:24:58 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/04 17:25:37 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:16:46 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_bool	is_duplicate(t_node *head)
 		{
 			if (current->value == next_node->value)
 			{
-				ft_putstr_fd("Error\nDuplicate number\n", 2);
+				ft_putstr_fd("Error\n", 2);
 				return (is_true);
 			}
 			next_node = next_node->next;

@@ -6,13 +6,13 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:00:10 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/04 17:13:01 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/05 14:50:42 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rotate(t_node **head, char move, t_stack *stack)
+void	rotate(t_node **head, char move)
 {
 	t_node	*first;
 	t_node	*last;
@@ -27,22 +27,14 @@ void	rotate(t_node **head, char move, t_stack *stack)
 	first->next = NULL;
 	last->next = first;
 	if (move == 'a')
-	{
 		ft_printf("ra\n");
-		stack->moves++;
-	}
 	else if (move == 'b')
-	{
 		ft_printf("rb\n");
-		stack->moves++;
-	}
-	else if (move == 'r')
-		stack->moves++;
 }
 
 void	double_rotate(t_stack *stack)
 {
-	rotate(&stack->head_a, 'r', stack);
-	rotate(&stack->head_b, 'r', stack);
+	rotate(&stack->head_a, 'r');
+	rotate(&stack->head_b, 'r');
 	ft_printf("rr\n");
 }

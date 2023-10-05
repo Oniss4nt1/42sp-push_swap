@@ -6,12 +6,13 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 11:02:04 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/04 17:01:43 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/05 14:45:06 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+	//It's important to set the next pointer to NULL before freeing the node
 void	push_a_to_b(t_stack *stack)
 {
 	t_node	*first;
@@ -22,12 +23,10 @@ void	push_a_to_b(t_stack *stack)
 	add_to_head(&stack->head_b, first->value);
 	stack->head_a = first->next;
 	first->next = NULL;
-	//It's important to set the next pointer to NULL before freeing the node
 	free(first);
 	stack->size_a--;
 	stack->size_b++;
 	ft_printf("pb\n");
-	stack->moves++;
 }
 
 void	push_b_to_a(t_stack *stack)
@@ -44,5 +43,4 @@ void	push_b_to_a(t_stack *stack)
 	stack->size_a++;
 	stack->size_b--;
 	ft_printf("pa\n");
-	stack->moves++;
 }

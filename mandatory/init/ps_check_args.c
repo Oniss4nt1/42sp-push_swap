@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_checks.c                                        :+:      :+:    :+:   */
+/*   ps_check_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:10:27 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/04 17:36:39 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:56:22 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 t_bool		is_integer(char *str);
-t_numbers	split_and_convert(char *str);
-t_bool		check_value(int num);
-t_bool		is_duplicate(t_node *head);
+t_numbers	split_and_convert(char *str, t_stack *stack);
+t_bool		check_value(char *str);
+t_bool		process_array(t_stack *stack, t_numbers array);
 
 t_bool	process_arguments(t_stack *stack, int argc, char **argv)
 {
-	int			i;
-	int			j;
 	t_numbers	array;
+	int			i;
 
 	i = 1;
 	while (i < argc)
@@ -31,21 +30,30 @@ t_bool	process_arguments(t_stack *stack, int argc, char **argv)
 			ft_putstr_fd("Error\n", 2);
 			return (is_false);
 		}
-		array = split_and_convert(argv[i]);
+		array = split_and_convert(argv[i], stack);
 		i++;
-		j = 0;
-		while (j < array.size)
-		{
-			add_to_list(&stack->head_a, stack, array.num[j]);
-			if (is_duplicate(stack->head_a))
-			{
-				free(array.num);
-				return (is_false);
-			}
-			j++;
-		}
-		free(array.num);
+		if (!process_array(stack, array))
+			return (is_false);
 	}
+	return (is_true);
+}
+
+t_bool	process_array(t_stack *stack, t_numbers array)
+{
+	int	i;
+
+	i = 0;
+	while (i < array.size)
+	{
+		add_to_list(&stack->head_a, stack, array.num[i]);
+		if (is_duplicate(stack->head_a))
+		{
+			free(array.num);
+			return (is_false);
+		}
+		i++;
+	}
+	free(array.num);
 	return (is_true);
 }
 
@@ -73,12 +81,12 @@ t_bool	is_integer(char *str)
 	return (is_true);
 }
 
-t_numbers	split_and_convert(char *str)
+t_numbers	split_and_convert(char *str, t_stack *stack)
 {
 	char		**strings;
 	t_numbers	array;
+	long int	temp;
 	int			i;
-	long int 	temp;
 
 	i = 0;
 	strings = ft_split(str, ' ');
@@ -91,11 +99,7 @@ t_numbers	split_and_convert(char *str)
 	{
 		temp = ft_atol(strings[i]);
 		if (temp > INT_MAX || temp < INT_MIN)
-		{
-			ft_putstr_fd("Error\nValue out of range\n", 2);
-			free(strings);
-			exit(1);
-		}
+			free_error(stack, &array, strings, i);
 		array.num[i] = (int)temp;
 		free(strings[i]);
 		i++;

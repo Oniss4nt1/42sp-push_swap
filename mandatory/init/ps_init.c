@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:31:44 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/04 16:21:20 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/05 12:48:05 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,17 @@ t_stack	*init_stack(void)
 		return (NULL);
 	stack->size_a = 0;
 	stack->size_b = 0;
-	stack->min_a = 0;
-	stack->min_b = 0;
-	stack->max_a = 0;
-	stack->max_b = 0;
 	stack->moves = 0;
 	stack->head_a = NULL;
 	stack->head_b = NULL;
 	return (stack);
 }
+
+// t_numbers init_numbers(void)
+// {
+// 	t_numbers	array;
+
+// 	array.size = 0;
+// 	array.num = NULL;
+// 	return (array);
+// }

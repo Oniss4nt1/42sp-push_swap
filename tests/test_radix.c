@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:20:54 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/02 18:07:39 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/05 12:58:53 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 		free_stack(stack);
 		return (1);
 	}
-	normalize_sort(stack);
+	sort_index(stack);
 	radix_sort(stack);
 	free_stack(stack);
 	return (0);	

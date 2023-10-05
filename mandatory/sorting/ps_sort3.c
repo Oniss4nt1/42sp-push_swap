@@ -6,13 +6,13 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:31:38 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/04 16:40:32 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:35:52 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_three(t_node **head, int size, t_stack *stack)
+void	sort_three(t_node **head, int size)
 {
 	int	a;
 	int	b;
@@ -24,19 +24,19 @@ void	sort_three(t_node **head, int size, t_stack *stack)
 	b = (*head)->next->value;
 	c = (*head)->next->next->value;
 	if (a > b && b < c && a < c)
-		swap(head, 'a', stack);
+		swap(head, 'a');
 	else if (a > b && b < c && a > c)
-		rotate(head, 'a', stack);
+		rotate(head, 'a');
 	else if (a < b && b > c && a > c)
-		reverse_rotate(head, 'a', stack);
+		reverse_rotate(head, 'a');
 	else if (a > b && b > c && a > c)
 	{
-		swap(head, 'a', stack);
-		reverse_rotate(head, 'a', stack);
+		swap(head, 'a');
+		reverse_rotate(head, 'a');
 	}
 	else if (a < b && b > c && a < c)
 	{
-		swap(head, 'a', stack);
-		rotate(head, 'a', stack);
+		swap(head, 'a');
+		rotate(head, 'a');
 	}
 }

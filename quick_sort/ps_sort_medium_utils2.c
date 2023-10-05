@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 18:27:45 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/04 17:12:16 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/05 12:58:53 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	find_next_nbr(t_node *head, int key_nbr)
 	return (0);
 }
 
-int	get_index(t_node *head, int value)
+int	sort_index(t_node *head, int value)
 {
 	int		index;
 	t_node	*current;
@@ -47,7 +47,7 @@ void	move_nbr_to_top(t_stack *stack, int next_nbr)
 {
 	int	index;
 
-	index = get_index(stack->head_a, next_nbr);
+	index = sort_index(stack->head_a, next_nbr);
 	if (index < stack->size_a / 2)
 	{
 		while (stack->head_a->value != next_nbr)

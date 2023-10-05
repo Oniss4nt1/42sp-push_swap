@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:55:27 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/04 16:19:30 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:26:04 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,10 @@ int	main(int argc, char *argv[])
 	}
 	if (is_sorted(stack->head_a))
 	{
-		ft_putstr_fd("Error\nList is already sorted\n", 2);
 		free_stack(stack);
 		return (1);
 	}
-	normalize_sort(stack);
-	radix_sort(stack);
+	sorting(stack, argc);
 	free_stack(stack);
 	return (0);
 }

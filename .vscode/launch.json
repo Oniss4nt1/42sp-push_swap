@@ -8,9 +8,11 @@
 			"name": "(gdb) Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "enter program name, for example ${workspaceFolder}/a.out",
-			"args": [],
-			"stopAtEntry": false,
+			"program": "${workspaceFolder}/push_swap",
+			"args": [
+				"0 1 2 3 4 5 6 7 8 9 10 -29"
+			],
+			"stopAtEntry": true,
 			"cwd": "${fileDirname}",
 			"environment": [],
 			"externalConsole": false,

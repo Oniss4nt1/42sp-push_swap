@@ -6,7 +6,7 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 18:54:21 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/04 16:22:22 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/05 12:48:43 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,6 @@ void	add_to_list(t_node **head, t_stack *stack, int value)
 		current->next = new_node;
 	}
 	stack->size_a++;
-	if (stack->size_a == 1)
-	{
-		stack->min_a = value;
-		stack->max_a = value;
-	}
-	else
-	{
-		if (value < stack->min_a)
-			stack->min_a = value;
-		if (value > stack->max_a)
-			stack->max_a = value;
-	}
 }
 
 void	add_to_head(t_node **head, int value)

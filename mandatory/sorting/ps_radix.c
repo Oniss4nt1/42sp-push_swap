@@ -6,13 +6,17 @@
 /*   By: brunrodr <brunrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 14:16:20 by brunrodr          #+#    #+#             */
-/*   Updated: 2023/10/04 16:46:03 by brunrodr         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:33:43 by brunrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../push_swap.h"
 
-void	normalize_sort(t_stack *stack)
+static void	add_index_to_list(t_stack *stack, int *array);
+static int	get_max_bits(t_node *head);
+void		radix_sort(t_stack *stack);
+
+void	sort_index(t_stack *stack)
 {
 	int		i;
 	int		count;
@@ -38,6 +42,14 @@ void	normalize_sort(t_stack *stack)
 		array[i++] = count;
 		current = current->next;
 	}
+	add_index_to_list(stack, array);
+}
+
+static void	add_index_to_list(t_stack *stack, int *array)
+{
+	int		i;
+	t_node	*current;
+
 	i = 0;
 	current = stack->head_a;
 	while (current)
@@ -48,7 +60,7 @@ void	normalize_sort(t_stack *stack)
 	free(array);
 }
 
-int	get_max_bits(t_node *head)
+static int	get_max_bits(t_node *head)
 {
 	int		max;
 	int		bits;
@@ -76,6 +88,7 @@ void	radix_sort(t_stack *stack)
 	int		size;
 	t_node	*current;
 
+	sort_index(stack);
 	max_bits = get_max_bits(stack->head_a);
 	size = stack->size_a;
 	i = 0;
@@ -86,7 +99,7 @@ void	radix_sort(t_stack *stack)
 		{
 			current = stack->head_a;
 			if (((current->value >> i) & 1) == 1)
-				rotate(&stack->head_a, 'a', stack);
+				rotate(&stack->head_a, 'a');
 			else
 				push_a_to_b(stack);
 		}
