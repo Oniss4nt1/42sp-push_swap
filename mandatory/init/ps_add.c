@@ -15,17 +15,14 @@
 /**
  * Function: add_to_list
  * -----------------
- * This function adds a new node to the end of a circular doubly linked list.
- * If the list is empty, the new node is the head of the list. Otherwise, the
- * new node is added to the end of the list. For add the new node to the end,
- * we have to update the pointers of the last node and the head node. When the
- * new node is added to the end, the next pointer of the last node points to
- * the new node, and the prev pointer of the head node points to the new node.
+ * Adds a new node to the end of the list.
  * 
  * @param: **head: pointer to the head of the list.
  * @param: value: value to be stored in the new node.
+ * @param: *stack: pointer to the stack.
  * @var: *new_node: pointer to the new node.
- * @var: *last_node: pointer to the last node of the list.
+ * @var: *current: pointer to the current nodek, used to traverse the list.
+ * @var: stack->size_a: size of the stack.
  *
  * @return: This is a void function, so it does not return a value.
  *
@@ -48,6 +45,20 @@ void	add_to_list(t_node **head, t_stack *stack, int value)
 	}
 	stack->size_a++;
 }
+
+/**
+ * Function: add_to_head
+ * -----------------
+ * Adds a new node to the head of the list. This is used when a function
+ * move a node from one list to another or when a node is pushed to the top.
+ * 
+ * @param: **head: pointer to the head of the list.
+ * @param: value: value to be stored in the new node.
+ * @var: *new_node: pointer to the new node.
+ *
+ * @return: This is a void function, so it does not return a value.
+ *
+ */
 
 void	add_to_head(t_node **head, int value)
 {

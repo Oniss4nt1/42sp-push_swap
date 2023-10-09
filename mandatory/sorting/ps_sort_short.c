@@ -12,6 +12,23 @@
 
 #include "../push_swap.h"
 
+/**
+ * Function: sort_short
+ * -----------------
+ * This function sorts a list of 3 to 15 numbers. It first moves the minimum
+ * number to the top of the list, then pushes it to the stack b, in this way
+ * the stack b will be sorted in ascending order. Then it sorts the stack a
+ * using the sort_three function, and finally it pushes the numbers from the
+ * stack b to the stack a, and if the first two numbers of the stack a are not
+ * sorted, it swaps them.
+ * 
+ * 
+ * @param: *stack: pointer to the stack.
+ * 
+ * @return: This is a void function, so it does not return a value.
+ *
+ */
+
 void	sort_short(t_stack *stack)
 {
 	if (stack->size_a == 2)
@@ -35,6 +52,24 @@ void	sort_short(t_stack *stack)
 			swap(&stack->head_a, 'a');
 	}
 }
+
+/**
+ * Function: move_min_top
+ * -----------------
+ * This function moves the minimum number of the stack a to the top of the
+ * stack a. It first finds the minimum number and its position, then if
+ * the position is greater than the size of the stack a divided by 2, it
+ * rotates the stack a, otherwise it reverse rotates the stack a. This is
+ * done in order to minimize the number of operations. 
+ * 
+ * @param: *stack: pointer to the stack.
+ * @var: min: minimum number of the stack a.
+ * @var: pos: position of the minimum number of the stack a.
+ * @var: *current: pointer to the current node of the stack a.
+ * 
+ * @return: This is a void function, so it does not return a value.
+ *
+ */
 
 void	move_min_top(t_stack *stack)
 {

@@ -17,6 +17,21 @@ t_numbers	split_and_convert(char *str, t_stack *stack);
 t_bool		check_value(char *str);
 t_bool		process_array(t_stack *stack, t_numbers array);
 
+/**
+ * Function: process_arguments
+ * -----------------
+ * This is the main function to process the arguments. It checks if the
+ * arguments are valid and then adds them to the list.
+ * 
+ * 
+ * @param: *stack: pointer to the stack.
+ * @param: argc: number of arguments.
+ * @param: **argv: pointer to the arguments.
+ *
+ * @return: This is a t_bool function, so it returns true or false.
+ *
+ */
+
 t_bool	process_arguments(t_stack *stack, int argc, char **argv)
 {
 	t_numbers	array;
@@ -38,24 +53,17 @@ t_bool	process_arguments(t_stack *stack, int argc, char **argv)
 	return (is_true);
 }
 
-t_bool	process_array(t_stack *stack, t_numbers array)
-{
-	int	i;
-
-	i = 0;
-	while (i < array.size)
-	{
-		add_to_list(&stack->head_a, stack, array.num[i]);
-		if (is_duplicate(stack->head_a))
-		{
-			free(array.num);
-			return (is_false);
-		}
-		i++;
-	}
-	free(array.num);
-	return (is_true);
-}
+/**
+ * Function: is_integer
+ * -----------------
+ * This function checks if the string passed as argument is a valid argument.
+ * 
+ * @param: *str: pointer to the string.
+ *
+ * @return: This is a t_bool function, so it returns true if the string is
+ * a valid argument and false if it is not.
+ *
+ */
 
 t_bool	is_integer(char *str)
 {
@@ -80,6 +88,25 @@ t_bool	is_integer(char *str)
 	}
 	return (is_true);
 }
+
+/**
+ * Function: split_and_convert
+ * -----------------
+ * After verifying that the string is a valid argument, this function splits
+ * the string into an array of strings and then converts each string into an
+ * integer, storing them in a struct of type t_numbers. 
+ * 
+ * @param: *str: pointer to the string.
+ * @param: *stack: pointer to the stack.
+ * @var: **strings: pointer to the array of strings.
+ * @var: array: struct of type t_numbers, containing the array of integers.
+ * @var: temp: temporary variable to store the converted string.
+ * @var: i: counter variable.
+ *
+ * @return: This is a t_numbers function, so it returns tje struct containing
+ * the array of integers.
+ *
+ */
 
 t_numbers	split_and_convert(char *str, t_stack *stack)
 {
@@ -107,3 +134,37 @@ t_numbers	split_and_convert(char *str, t_stack *stack)
 	free(strings);
 	return (array);
 }
+
+/**
+ * Function: process_array
+ * -----------------
+ * This is the last function to process the arguments. It adds the integers
+ * to the list and checks if there are duplicates.
+ *  
+ * @param: *stack: pointer to the stack.
+ * @param: array: struct of type t_numbers, containing the array of integers.
+ * @param: i: counter variable.
+ *
+ * @return: This is a t_bool function, so it returns true or false.
+ *
+ */
+
+t_bool	process_array(t_stack *stack, t_numbers array)
+{
+	int	i;
+
+	i = 0;
+	while (i < array.size)
+	{
+		add_to_list(&stack->head_a, stack, array.num[i]);
+		if (is_duplicate(stack->head_a))
+		{
+			free(array.num);
+			return (is_false);
+		}
+		i++;
+	}
+	free(array.num);
+	return (is_true);
+}
+

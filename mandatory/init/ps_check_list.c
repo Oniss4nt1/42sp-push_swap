@@ -12,6 +12,21 @@
 
 #include "../push_swap.h"
 
+/**
+ * Function: is_sorted
+ * -----------------
+ * This function checks if the list is sorted. It is always called after
+ * a number is added to the list. Basically, it compares the value of the
+ * current node with the value of the next node. If the value of the current
+ * node is greater than the value of the next node, it returns false. If the
+ * list is sorted, it returns true.
+ *  
+ * @param: *head: pointer to the head of the list.
+ *
+ * @return: This is a t_bool function, so it returns true or false.
+ *
+ */
+
 t_bool	is_sorted(t_node *head)
 {
 	while (head && head->next)
@@ -22,6 +37,21 @@ t_bool	is_sorted(t_node *head)
 	}
 	return (is_true);
 }
+
+/**
+ * Function: is_duplicate
+ * -----------------
+ * This function checks if there are duplicate values in the list. It is always
+ * called after a number is added to the list. Basically, it compares the value
+ * of the current node with the value of the next node. If the value of the
+ * current node is equal to the value of the next node, it returns false. If
+ * there are no duplicate values, it returns true.
+ *  
+ * @param: *head: pointer to the head of the list.
+ *
+ * @return: This is a t_bool function, so it returns true or false.
+ *
+ */
 
 t_bool	is_duplicate(t_node *head)
 {

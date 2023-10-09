@@ -12,6 +12,24 @@
 
 #include "../push_swap.h"
 
+/**
+ * Function: reverse_rotate
+ * -----------------
+ * This function reverses rotate the list. It gets the last node of the list
+ * and sets it as the first node. Then, it sets the penultimate node as the
+ * last node. Finally, it sets the next node of the last node to the first node,
+ * because of the circular list. 
+ * 
+ * @param: **head: pointer to the head of the list.
+ * @param: move: move to be printed, if 'a' or 'b' it prints "rra" or "rrb", 
+ * if 'r' it prints "rrr".
+ * @var: *last: pointer to the last node of the list.
+ * @var: *penultimate: pointer to the penultimate node of the list.
+ * 
+ * @return: This is a void function, so it does not return a value.
+ *
+ */
+
 void	reverse_rotate(t_node **head, char move)
 {
 	t_node	*last;
@@ -36,6 +54,19 @@ void	reverse_rotate(t_node **head, char move)
 	else if (move == 'r')
 		ft_printf("rrr\n");
 }
+
+/**
+ * Function: double_reverse_rr
+ * -----------------
+ * This function reverses rotate both lists. Basically, it calls the function
+ * reverse_rotate twice, one for each list. Important to note that the move
+ * printed is "rrr" for this function.
+ * 
+ * @param: *stack: pointer to the stack.
+ * 
+ * @return: This is a void function, so it does not return a value.
+ *
+ */
 
 void	double_reverse_rr(t_stack *stack)
 {

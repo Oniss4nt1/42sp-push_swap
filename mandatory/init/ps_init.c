@@ -10,7 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
+
+/**
+ * Function: init_node
+ * -----------------
+ * This function initializes a new node. It allocates memory for the node and
+ * sets the value to the value passed as argument. It also sets the next node
+ * to NULL.
+ *  
+ * @param: value: value to be stored in the new node.
+ * 
+ * @return: This is a t_node function, so it returns a pointer to the new node.
+ *
+ */
 
 t_node	*init_node(int value)
 {
@@ -23,6 +36,18 @@ t_node	*init_node(int value)
 	node->next = NULL;
 	return (node);
 }
+
+/**
+ * Function: init_stack
+ * -----------------
+ * This function initializes a new stack. It allocates memory for the stack and
+ * sets the size of the stack to 0 and the head of the list to NULL.
+ *  
+ * @param: void.
+ * 
+ * @return: This is a t_stack function, so it returns a pointer to the new stack.
+ *
+ */
 
 t_stack	*init_stack(void)
 {
@@ -38,12 +63,3 @@ t_stack	*init_stack(void)
 	stack->head_b = NULL;
 	return (stack);
 }
-
-// t_numbers init_numbers(void)
-// {
-// 	t_numbers	array;
-
-// 	array.size = 0;
-// 	array.num = NULL;
-// 	return (array);
-// }
