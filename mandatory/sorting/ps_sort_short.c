@@ -12,6 +12,9 @@
 
 #include "../push_swap.h"
 
+int	find_min(t_node *head);
+int	find_distance_top(t_stack *stack, int min);
+
 /**
  * Function: sort_short
  * -----------------
@@ -57,10 +60,11 @@ void	sort_short(t_stack *stack)
  * Function: move_min_top
  * -----------------
  * This function moves the minimum number of the stack a to the top of the
- * stack a. It first finds the minimum number and its position, then if
- * the position is greater than the size of the stack a divided by 2, it
- * rotates the stack a, otherwise it reverse rotates the stack a. This is
- * done in order to minimize the number of operations. 
+ * stack a. It calls the find_min function to find the minimum number, then
+ * it calls the find_distance_top function to find the distance of the minimum
+ * number to the top of the stack a. Finally, it rotates or reverse rotates
+ * the stack a depending on the distance of the minimum number to the top of
+ * the stack a.
  * 
  * @param: *stack: pointer to the stack.
  * @var: min: minimum number of the stack a.
@@ -74,25 +78,76 @@ void	sort_short(t_stack *stack)
 void	move_min_top(t_stack *stack)
 {
 	int		min;
-	int		pos;
-	t_node	*current;
+	int		distance_top;
+	int		distance_bottom;
 
-	current = stack->head_a;
+	min = find_min(stack->head_a);
+	distance_top = find_distance_top(stack, min);
+	distance_bottom = stack->size_a - distance_top;
+
+	while (stack->head_a->value != min)
+	{
+		if (distance_top <= distance_bottom)
+			rotate(&stack->head_a, 'a');
+		else 
+			reverse_rotate(&stack->head_a, 'a');
+	}
+}
+
+/**
+ * Function: find_min
+ * -----------------
+ * This function finds the minimum number of the stack a.
+ * 
+ * @param: *head: pointer to the head of the stack a.
+ * @var: min: minimum number of the stack a.
+ * @var: *tmp: pointer to the current node of the stack a.
+ * 
+ * @return: This is a void function, so it does not return a value.
+ *
+ */
+
+int	find_min(t_node *head)
+{
+	int	min;
+	t_node *current;
+
+	current = head;
 	min = current->value;
-	pos = 0;
 	while (current)
 	{
 		if (current->value < min)
-		{
 			min = current->value;
-			pos++;
-		}
 		current = current->next;
 	}
-	if (pos > stack->size_a / 2)
-		while (stack->head_a->value != min)
-			reverse_rotate(&stack->head_a, 'a');
-	else
-		while (stack->head_a->value != min)
-			rotate(&stack->head_a, 'a');
+	return (min);
+}
+
+/**
+ * Function: find_distance_top
+ * -----------------
+ * This function finds the distance of the minimum number of the stack a to the
+ * top of the stack a. 
+ * 
+ * @param: *stack: pointer to the stack.
+ * @var: min: minimum number of the stack a.
+ * 
+ * @return: This function returns the distance of the minimum number of the
+ * stack a to the top of the stack a.
+ *
+ */
+
+int	find_distance_top(t_stack *stack, int min)
+{
+	int		distance;
+	t_node *current;
+
+	distance = 0;
+	current = stack->head_a;
+	while (current->value != min)
+	{
+		current = current->next;
+		distance++;
+	}
+	return (distance);
 }

@@ -32,7 +32,7 @@ int	main(int argc, char *argv[])
 		free_stack(stack);
 		return (1);
 	}
-	sorting(stack, argc);
+	sorting(stack);
 	free_stack(stack);
 	return (0);
 }

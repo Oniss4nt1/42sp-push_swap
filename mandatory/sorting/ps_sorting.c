@@ -26,9 +26,9 @@
  *
  */
 
-void	sorting(t_stack *stack, int argc)
+void	sorting(t_stack *stack)
 {
-	if (argc >= 2 && argc <= 15)
+	if (stack->size_a <= 15)
 		sort_short(stack);
 	else
 		radix_sort(stack);

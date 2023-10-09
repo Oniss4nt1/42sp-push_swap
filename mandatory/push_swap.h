@@ -90,7 +90,7 @@ void			double_reverse_rr(t_stack *stack);
 
 void			sort_three(t_node **head, int size);
 void			sort_short(t_stack *stack);
-void			sorting(t_stack *stack, int argc);
+void			sorting(t_stack *stack);
 
 //############################# UTILS ##########################################
 
